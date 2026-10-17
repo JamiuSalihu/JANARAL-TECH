@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANARAL Technologies | Engineering Sustainable Intelligence</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepSlate: '#1E293B',
+                        slateDarker: '#0F172A',
+                        skyGlass: 'rgba(14, 165, 233, 0.08)',
+                        skyBorder: 'rgba(56, 189, 248, 0.25)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F17;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        /* Full Screen Animated Hero Slider Background */
+        .hero-bg-slider {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            animation: heroBgSlide 24s infinite ease-in-out;
+            transition: background-image 1.5s ease-in-out;
+        }
+
+        @keyframes heroBgSlide {
+            0%, 20% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(11, 15, 23, 0.95)), 
+                                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop');
+            }
+            25%, 45% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(11, 15, 23, 0.95)), 
+                                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');
+            }
+            50%, 70% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(11, 15, 23, 0.95)), 
+                                  url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');
+            }
+            75%, 95% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(11, 15, 23, 0.95)), 
+                                  url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1600&auto=format&fit=crop');
+            }
+            100% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(11, 15, 23, 0.95)), 
+                                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop');
+            }
+        }
+
+        /* Sky Blue Glass Containers */
+        .sky-glass {
+            background: rgba(14, 165, 233, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .sky-glass:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Continuous Horizontal Slider Track for Division Cards */
+        .slider-track-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 110px;
+            border-radius: 0.75rem;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 200%;
+            animation: continuousScroll 16s linear infinite;
+        }
+
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes continuousScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Crossfade transition for Partner Image Box */
+        .fade-transition {
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* Glowing accents */
+        .glow-sky {
+            text-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284C7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F17] text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- HEADER (#1E293B Deep Slate background) -->
+    <header class="sticky top-0 z-50 bg-[#1E293B]/95 backdrop-blur-md border-b border-sky-900/40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo with Fallback -->
+            <a href="Index.html" class="flex items-center space-x-3 group">
+                <div class="relative w-12 h-12 rounded-xl overflow-hidden border border-sky-400/30 p-0.5 bg-slate-900">
+                    <img src="image/my.jpeg" 
+                         alt="JANARAL Logo" 
+                         class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=JNR';">
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-sky-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
+                        JANARAL
+                    </span>
+                    <span class="block text-[10px] font-semibold text-sky-400 uppercase tracking-widest">Technologies</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#divisions" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Core Divisions</a>
+                <a href="#partnerships" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Strategic Partnerships</a>
+                <a href="#impact" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Global Infrastructure</a>
+                <a href="Our teams.html" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Our Teams</a>
+                <a href="#contact" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Initiate Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="flex items-center space-x-4">
+                <a href="waitlist.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-lg shadow-md hover:from-sky-500 hover:to-blue-600 focus:ring-2 focus:ring-sky-400 transition-all duration-300 hover:shadow-sky-500/20">
+                    <i class="fa-solid fa-terminal mr-2 text-xs"></i> JAI
+                </a>
+                
+                <!-- Mobile menu toggle button -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B] border-b border-sky-800/40 px-4 pt-2 pb-6 space-y-3 text-center">
+            <a href="#divisions" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Core Divisions</a>
+            <a href="#partnerships" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Strategic Partnerships</a>
+            <a href="#impact" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Global Infrastructure</a>
+            <a href="Our teams.html" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Our Teams</a>
+            <a href="#contact" class="block py-2 text-sky-400 font-semibold">Initiate Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24">
+        <!-- CSS Animated Full-Screen Slider Background -->
+        <div class="hero-bg-slider"></div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full sky-glass border border-sky-400/30 text-sky-300 text-xs font-semibold uppercase tracking-widest mb-8">
+                <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+                <span>Industrial Intelligence System v4.8</span>
+            </div>
+
+            <!-- Primary Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                Architecting Next-Era <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent glow-sky">
+                    Global Supremacy
+                </span>
+            </h1>
+
+            <!-- Professional Tagline (Updated requirement) -->
+            <p class="text-lg sm:text-2xl font-light text-slate-200 max-w-3xl mx-auto mb-10 leading-relaxed border-l-2 sm:border-l-0 border-sky-400 pl-4 sm:pl-0">
+                Engineering Sustainable Intelligence & Global Industrial Infrastructure
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#divisions" class="w-full sm:w-auto px-8 py-4 text-base font-bold rounded-xl text-white bg-sky-500 hover:bg-sky-400 transition-all duration-300 shadow-lg shadow-sky-500/25 flex items-center justify-center space-x-2">
+                    <span>Explore Divisions</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#partnerships" class="w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-xl text-slate-200 sky-glass hover:bg-sky-500/20 transition-all duration-300 border border-sky-400/30 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-handshake-simple text-sky-400"></i>
+                    <span>Strategic Alliances</span>
+                </a>
+            </div>
+
+            <!-- Operational Stats Row -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+                <div class="sky-glass p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">99.999%</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Compute Uptime</div>
+                </div>
+                <div class="sky-glass p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">12+ GW</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Clean Energy Capacity</div>
+                </div>
+                <div class="sky-glass p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">6 Continental</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Bio & AI Grid Nodes</div>
+                </div>
+                <div class="sky-glass p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">$10B+</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Infrastructure Capital</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE DIVISIONS SECTION -->
+    <section id="divisions" class="py-24 relative bg-slate-950/80 border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">Pillars of Ecosystem</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold text-white">JANARAL Core Divisions</h3>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">
+                    Integrated technological domains driving next-generation computational, biological, and physical infrastructure.
+                </p>
+            </div>
+
+            <!-- Divisions Grid (6 Divisions) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- 1. JANARAL AI & Quantum -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">🤖</span>
+                            <!--<span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-01</span> -->
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">JANARAL AI & Quantum</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Constructing ultra-scalable neural network clusters, sovereign LLM frameworks, and quantum algorithmic simulators for enterprise decision intelligence.
+                        </p>
+                    </div>
+                    <!-- Image Slider Track -->
+                    <div class="slider-track-container border border-sky-500/20">
+                        <div class="slider-track">
+                            <img src="images (b).jpeg" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="AI Server">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Quantum Circuit">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Data Network">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="AI Server duplicate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. JANARAL Energy Systems -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">⚡</span>
+                            <!-- <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-02</span> -->
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">JANARAL Energy Systems</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Deploying modular nuclear fusion concepts, high-capacity utility battery grids, and zero-loss wireless power delivery networks.
+                        </p>
+                    </div>
+                    <!-- Image Slider Track -->
+                    <div class="slider-track-container border border-sky-500/20">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Wind Turbines">
+                            <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Solar Farm">
+                            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Power Lines">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Wind Turbines duplicate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. JANARAL Advanced Robotics -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">🦾</span>
+                           <!-- <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-03</span> -->
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">JANARAL Advanced Robotics</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Autonomous heavy machinery, bipedal humanoid workforce systems, and intelligent drone swarms for complex industrial logistics.
+                        </p>
+                    </div>
+                    <!-- Image Slider Track -->
+                    <div class="slider-track-container border border-sky-500/20">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Robot Arm">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Industrial Automation">
+                            <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Drone Fleet">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Robot Arm duplicate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. JANARAL BioTech (NEWLY ADDED REQUIREMENT) -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border-2 border-sky-400/40 relative">
+                    <span class="absolute -top-3 right-4 bg-sky-500 text-slate-950 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-md">
+                        Featured Division
+                    </span>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">🧫</span>
+                           <!-- <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-04</span> -->
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">🧫 JANARAL BioTech</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Pioneering genomic compute, bio-computational modeling, advanced synthetic biology, and sustainable biomaterials for healthcare and agricultural resilience.
+                        </p>
+                    </div>
+                    <!-- Animated Image Slider Track (Identical format) -->
+                    <div class="slider-track-container border border-sky-500/30">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Genomic Research">
+                            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Bio Simulation">
+                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Synthetic DNA">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Genomic Research duplicate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. JANARAL Academy -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">🎓</span>
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-05</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">JANARAL Academy</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Cultivating engineering leaders, AI researchers, and bioscience pioneers through immersive computational fellowships and industrial innovation labs.
+                        </p>
+                    </div>
+                    <!-- Image Slider Track -->
+                    <div class="slider-track-container border border-sky-500/20">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Lecture Hall">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="STEM Lab">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Collaborative Study">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Lecture Hall duplicate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. JANARAL Space & Smart Cities -->
+                <div class="sky-glass p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl">🚀</span>
+                            <!--<span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-950/80 text-sky-300 border border-sky-800">DIV-06</span> -->
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">JANARAL Space & Smart Cities</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Architecting orbital satellite arrays, autonomous urban transit grids, and smart megacity infrastructure optimized by digital twins.
+                        </p>
+                    </div>
+                    <!-- Image Slider Track -->
+                    <div class="slider-track-container border border-sky-500/20">
+                        <div class="slider-track">
+                            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Rocket Launch">
+                            <img src="https://images.unsplash.com/photo-1477959858617-67f30ac4ce78?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Smart City Night">
+                            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Satellite Earth">
+                            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=400&auto=format&fit=crop" class="w-1/4 h-full object-cover px-1 rounded-lg" alt="Rocket Launch duplicate">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC PARTNERSHIPS SECTION (VERTICAL LAYOUT WITH SIDE-BY-SIDE CYCLING CARDS) -->
+    <section id="partnerships" class="py-24 relative bg-[#0F172A] border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 bg-sky-950/60 px-3 py-1 rounded-full border border-sky-800">
+                    Synergistic Synergies
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Strategic Partnerships</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">
+                    Vertical alignment with world-class engineering, scientific, and capital entities to accelerate global industrial transformation.
+                </p>
+            </div>
+
+            <!-- Vertical Stack of 5 Partners -->
+            <div class="space-y-12">
+
+                <!-- PARTNER 1: Global Tech Alliance -->
+                <div class="sky-glass p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Details & Write-up -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-globe text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">1. Global Tech Alliance</h3>
+                                <p class="text-xs text-sky-400 font-mono">SUPRA-NATIONAL COMPUTE COALITION</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            The Global Tech Alliance connects JANARAL’s quantum AI infrastructure with premier international technology consortiums across North America, Europe, and Asia-Pacific. Together, we establish zero-latency cross-border data conduits, sovereign AI compute hubs, and unified cybersecurity frameworks.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Cross-Border Cloud</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Quantum Encryption</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Sovereign Data Grid</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Image Box (2-3 Cycling Images + Changing Captions) -->
+                    <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-xl">
+                        <div id="partner1-slider" class="w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" data-caption="Global High-Speed Optical Gateway node deployed in Tokyo hub.">
+                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Optical Network">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Hyperscale AI Supercomputing Cluster in Frankfurt.">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Data Center">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Orbital Satellite Ground Command Station in Nevada.">
+                                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Satellite Station">
+                            </div>
+                        </div>
+                        <!-- Cycling Caption Overlay -->
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider block mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1 text-[9px]"></i> Live Deployment
+                            </span>
+                            <p id="partner1-caption" class="text-xs text-slate-200 font-medium leading-snug">
+                                Global High-Speed Optical Gateway node deployed in Tokyo hub.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARTNER 2: YEMOJ Eng. & Fab. -->
+                <div class="sky-glass p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Details & Write-up -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-industry text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">2. YEMOJ Eng. & Fab.</h3>
+                                <p class="text-xs text-sky-400 font-mono">HEAVY INDUSTRIAL & FABRICATION PARTNER</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            YEMOJ Engineering & Fabrication serves as JANARAL’s primary heavy hardware production backbone. Specializing in modular titanium alloy smelting, automated industrial robotic assemblies, and ruggedized housing for bio-compute units deployed in extreme environments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Heavy Smelting</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Robotic Assembly Line</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Rugged Containment</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Image Box -->
+                    <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-xl">
+                        <div id="partner2-slider" class="w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" data-caption="Automated robotic laser-welding assembly line for chassis production.">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Laser Welding">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Precision CNC machining of bio-reactor structural housings.">
+                                <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Machining Precision">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Heavy industrial turbine fabrication at YEMOJ facility.">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Turbine Fabrication">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider block mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1 text-[9px]"></i> Fabrication Matrix
+                            </span>
+                            <p id="partner2-caption" class="text-xs text-slate-200 font-medium leading-snug">
+                                Automated robotic laser-welding assembly line for chassis production.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARTNER 3: African Innovation Labs -->
+                <div class="sky-glass p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Details & Write-up -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-flask-vial text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">3. African Innovation Labs</h3>
+                                <p class="text-xs text-sky-400 font-mono">CONTINENTAL R&D & BIO-GENOMIC HUB</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Partnering across sub-Saharan R&D epicenters, African Innovation Labs co-develops indigenous agricultural genomics, localized AI weather-prediction models, and clean-energy microgrids tailored for rapid tropical industrialization and community resilience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">AgTech Bio-Genomics</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Tropical Microgrids</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">STEM Acceleration</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Image Box -->
+                    <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-xl">
+                        <div id="partner3-slider" class="w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" data-caption="Bio-genomic sequencing facility in Nairobi innovation quarter.">
+                                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Genomic Lab">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Off-grid solar micro-grid powering rural agricultural sensors.">
+                                <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Solar Microgrid">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Next-generation computational fellowship program in Lagos.">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Fellowship Program">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider block mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1 text-[9px]"></i> R&D Sentinel
+                            </span>
+                            <p id="partner3-caption" class="text-xs text-slate-200 font-medium leading-snug">
+                                Bio-genomic sequencing facility in Nairobi innovation quarter.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARTNER 4: Clean Energy Consortium -->
+                <div class="sky-glass p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Details & Write-up -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-bolt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">4. Clean Energy Consortium</h3>
+                                <p class="text-xs text-sky-400 font-mono">RENEWABLE & FUSION ENERGY GRID</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Uniting global solar-thermal operators, geothermal pioneers, and nuclear fusion initiatives, the Clean Energy Consortium provides continuous zero-emission power gigawatts to fuel JANARAL’s energy-intensive data campuses and bio-computational centers.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Solar Thermal Arrays</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Solid-State Storage</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Compact Tokamak Fusion</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Image Box -->
+                    <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-xl">
+                        <div id="partner4-slider" class="w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" data-caption="Concentrated solar power tower array delivering 500MW capacity.">
+                                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Solar Tower">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Modular utility-scale lithium battery bank installation.">
+                                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Battery Array">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Geothermal energy tap powering deep computing infrastructure.">
+                                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Geothermal Facility">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider block mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1 text-[9px]"></i> Power Grid Telemetry
+                            </span>
+                            <p id="partner4-caption" class="text-xs text-slate-200 font-medium leading-snug">
+                                Concentrated solar power tower array delivering 500MW capacity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARTNER 5: Venture & Infrastructure Funds -->
+                <div class="sky-glass p-6 sm:p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Details & Write-up -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-chart-line text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">5. Venture & Infrastructure Funds</h3>
+                                <p class="text-xs text-sky-400 font-mono">GLOBAL CAPITAL ALLOCATION</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Backed by a $2.5B multi-stage syndicate including sovereign wealth vehicles and deep-tech venture houses, this coalition ensures seamless long-term capital deployment for JANARAL’s multi-decade global infrastructure initiatives.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">$2.5B Co-Investment</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Sovereign Wealth Syndicate</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800/60">Deep-Tech Scaling</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Animated Image Box -->
+                    <div class="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-xl">
+                        <div id="partner5-slider" class="w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" data-caption="Global financial technology control room in London.">
+                                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Financial Tech">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Smart city infrastructure master plan site development.">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Skyscraper Infrastructure">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" data-caption="Global investment syndicate summit in Zurich.">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Investment Summit">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider block mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1 text-[9px]"></i> Capital Flow
+                            </span>
+                            <p id="partner5-caption" class="text-xs text-slate-200 font-medium leading-snug">
+                                Global financial technology control room in London.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INITIATE CONTACT / CASE-SENSITIVE FORM SECTION -->
+    <section id="contact" class="py-24 relative bg-slate-950 border-t border-sky-900/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="sky-glass p-8 sm:p-12 rounded-3xl border border-sky-400/30 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Secure Gateway</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-2">Initiate Strategic Contact</h2>
+                    <p class="text-slate-400 text-sm mt-2">
+                        Authorization protocol required. Enter case-sensitive access credentials to transmit encrypted request.
+                    </p>
+                </div>
+
+                <!-- Case-sensitive form -->
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Full Name with Case-Sensitive Title Pattern (Capital first letter required) -->
+                        <div>
+                            <label for="fullName" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Officer Name <span class="text-sky-400">(Capitalized Case)</span> *
+                            </label>
+                            <input type="text" 
+                                   id="fullName" 
+                                   name="fullName" 
+                                   required 
+                                   pattern="^[A-Z][a-zA-Z\s]{2,40}$" 
+                                   title="Must start with an UPPERCASE letter (e.g., 'Alexander Vance')"
+                                   placeholder="e.g. Alexander Vance" 
+                                   class="w-full px-4 py-3 bg-slate-900/90 border border-sky-800/60 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-sm transition-all">
+                            <span class="text-[11px] text-slate-500 mt-1 block">Case-Sensitive: Capitalize first letters.</span>
+                        </div>
+
+                        <!-- Organization Clearance Code with Strict Regex Case Pattern -->
+                        <div>
+                            <label for="clearanceCode" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Clearance Tag <span class="text-sky-400">(Format: JNR-2026-XQ)</span> *
+                            </label>
+                            <input type="text" 
+                                   id="clearanceCode" 
+                                   name="clearanceCode" 
+                                   required 
+                                   pattern="^JNR-2026-[A-Z]{2}$" 
+                                   title="Must match exact case pattern: JNR-2026-XX (e.g., JNR-2026-XQ)"
+                                   placeholder="JNR-2026-XQ" 
+                                   class="w-full px-4 py-3 bg-slate-900/90 border border-sky-800/60 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-sm font-mono transition-all">
+                            <span class="text-[11px] text-slate-500 mt-1 block">Strict case match: Must use uppercase JNR-2026-XX</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Work Email -->
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Institutional Email *
+                            </label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   required 
+                                   pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                   placeholder="a.vance@institution.org" 
+                                   class="w-full px-4 py-3 bg-slate-900/90 border border-sky-800/60 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-sm transition-all">
+                        </div>
+
+                        <!-- Division Domain Interest -->
+                        <div>
+                            <label for="divisionSelect" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Target Division Domain *
+                            </label>
+                            <select id="divisionSelect" required class="w-full px-4 py-3 bg-slate-900 border border-sky-800/60 rounded-xl text-white focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-sm">
+                                <option value="" disabled selected>Select Primary Interest Domain...</option>
+                                <option value="biotech">🧫 JANARAL BioTech</option>
+                                <option value="ai">🤖 JANARAL AI & Quantum</option>
+                                <option value="energy">⚡ JANARAL Energy Systems</option>
+                                <option value="robotics">🦾 JANARAL Advanced Robotics</option>
+                                <option value="academy">🎓 JANARAL Academy</option>
+                                <option value="space">🚀 JANARAL Space & Smart Cities</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Transmission Message -->
+                    <div>
+                        <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                            Proposal Brief / Transmission Details *
+                        </label>
+                        <textarea id="message" 
+                                  name="message" 
+                                  rows="4" 
+                                  required 
+                                  minlength="20"
+                                  placeholder="Provide confidential overview of infrastructure requirement or partnership proposal..." 
+                                  class="w-full px-4 py-3 bg-slate-900/90 border border-sky-800/60 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-sm transition-all"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-4 text-base font-bold text-slate-950 bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-500 rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-sky-500/25 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Transmit Encrypted Dispatch</span>
+                    </button>
+                </form>
+
+                <!-- Custom Modal Message Container (No Alert) -->
+                <div id="formNotification" class="hidden mt-6 p-4 rounded-xl border text-sm font-medium transition-all"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (#1E293B Deep Slate) -->
+    <footer class="bg-[#1E293B] border-t border-sky-900/40 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-sky-400/30 p-0.5 bg-slate-900">
+                            <img src="my.jpeg" 
+                                 alt="JANARAL Logo" 
+                                 class="w-full h-full object-cover rounded-md"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e293b/38bdf8?text=JNR';">
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-wider">JANARAL Technologies</span>
+                    </div>
+                    <p class="text-slate-300 text-sm max-w-md leading-relaxed">
+                        Engineering Sustainable Intelligence & Global Industrial Infrastructure across compute, biotech, robotics, and clean power grids.
+                    </p>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">Core Ecosystem</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#divisions" class="hover:text-sky-300 transition-colors">🧫 JANARAL BioTech</a></li>
+                        <li><a href="#divisions" class="hover:text-sky-300 transition-colors">🤖 AI & Quantum Systems</a></li>
+                        <li><a href="#divisions" class="hover:text-sky-300 transition-colors">⚡ Renewable Energy Grid</a></li>
+                        <li><a href="#divisions" class="hover:text-sky-300 transition-colors">🦾 Robotics & Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Governance -->
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">Governance</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#partnerships" class="hover:text-sky-300 transition-colors">Strategic Partnerships</a></li>
+                        <li><a href="#" class="hover:text-sky-300 transition-colors">Security & Protocol Compliance</a></li>
+                        <li><a href="#" class="hover:text-sky-300 transition-colors">Global Operations Center</a></li>
+                        <li><a href="#" class="hover:text-sky-300 transition-colors">Ethics & Bio-Safety Grid</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
+                <p>&copy; 2026 JANARAL Technologies | A SAM holding Company. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-x-twitter text-base"></i></a>
+                    <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-linkedin text-base"></i></a>
+                    <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-github text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Mobile Menu Toggle logic
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Automated Partner Side-by-Side Image Box Slider Logic (2-3 cycling images with changing captions)
+            const partnerSliders = [
+                { id: 'partner1-slider', captionId: 'partner1-caption' },
+                { id: 'partner2-slider', captionId: 'partner2-caption' },
+                { id: 'partner3-slider', captionId: 'partner3-caption' },
+                { id: 'partner4-slider', captionId: 'partner4-caption' },
+                { id: 'partner5-slider', captionId: 'partner5-caption' }
+            ];
+
+            partnerSliders.forEach((sliderObj, index) => {
+                const container = document.getElementById(sliderObj.id);
+                const captionEl = document.getElementById(sliderObj.captionId);
+
+                if (!container || !captionEl) return;
+
+                const slides = container.querySelectorAll('.partner-slide');
+                if (slides.length === 0) return;
+
+                let currentIndex = 0;
+
+                // Cycle images and caption every 3.5 seconds with staggered offset per partner card
+                setInterval(() => {
+                    // Hide current slide
+                    slides[currentIndex].classList.remove('opacity-100');
+                    slides[currentIndex].classList.add('opacity-0');
+
+                    // Next slide index
+                    currentIndex = (currentIndex + 1) % slides.length;
+
+                    // Show new slide
+                    slides[currentIndex].classList.remove('opacity-0');
+                    slides[currentIndex].classList.add('opacity-100');
+
+                    // Smooth update caption
+                    const newCaption = slides[currentIndex].getAttribute('data-caption');
+                    captionEl.style.opacity = 0;
+                    setTimeout(() => {
+                        captionEl.textContent = newCaption;
+                        captionEl.style.opacity = 1;
+                    }, 300);
+
+                }, 3800 + (index * 400)); // slightly staggered interval
+            });
+
+            // Case-Sensitive Contact Form Handler
+            const contactForm = document.getElementById('contactForm');
+            const notification = document.getElementById('formNotification');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const fullName = document.getElementById('fullName').value;
+                    const clearanceCode = document.getElementById('clearanceCode').value;
+
+                    // Validation checks
+                    if (!fullName || !clearanceCode) {
+                        showNotification('Please fulfill all mandatory case-sensitive validation fields.', 'error');
+                        return;
+                    }
+
+                    // Success Simulation
+                    showNotification(`[SECURE DISPATCH CONFIRMED] Clearance Code ${clearanceCode} verified for Officer ${fullName}. Your request has been transmitted to JANARAL Command Systems.`, 'success');
+                    contactForm.reset();
+                });
+            }
+
+            function showNotification(msg, type) {
+                if (!notification) return;
+                notification.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'text-emerald-300', 'bg-red-950/80', 'border-red-500', 'text-red-300');
+                
+                if (type === 'success') {
+                    notification.classList.add('bg-emerald-950/80', 'border-emerald-500', 'text-emerald-300', 'block');
+                } else {
+                    notification.classList.add('bg-red-950/80', 'border-red-500', 'text-red-300', 'block');
+                }
+                
+                notification.textContent = msg;
+
+                // Scroll notification into view smoothly
+                notification.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    </script>
+</body>

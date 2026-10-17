@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAI Waitlist | JANARAL Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. LANDING PAGE GLOBAL VARIABLES & SETUP
+           ========================================= */
+        :root {
+            --primary-bg: #1E293B; /* Deep Slate */
+            --accent-gold: #FFD700;
+            --accent-gold-dark: #D4AF37;
+            --text-light: #FFFFFF;
+            --text-muted: #A0AEC0;
+            
+            /* Sky Blue Glassmorphism settings from landing page */
+            --glass-bg: rgba(135, 206, 235, 0.12); 
+            --glass-border: rgba(135, 206, 235, 0.25);
+            
+            /* Dark Form Box */
+            --form-bg: rgba(15, 23, 42, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            background-color: var(--primary-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Background matching Landing Page */
+        .bg-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            /* Uses the same background image and dark overlay style */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images (12).jpeg') center/cover no-repeat;
+        }
+
+        /* =========================================
+           2. LANDING PAGE HEADER & NAVIGATION
+           ========================================= */
+        header {
+            background: var(--primary-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-container {
+            width: 160px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-decoration: none;
+            border-radius: 4px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+        }
+
+        /* Fallback text if my.jpeg doesn't load */
+        .logo-container::after {
+            content: 'JANARAL';
+            color: white;
+            font-weight: 800;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            z-index: -1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* =========================================
+           3. WAITLIST MAIN CONTENT (Glassmorphism)
+           ========================================= */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 5%;
+        }
+
+        .waitlist-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            align-items: center;
+        }
+
+        /* Left Side: Copy & Features */
+        .waitlist-text h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        .waitlist-text h1 span {
+            color: var(--accent-gold);
+        }
+        .waitlist-text h2 {
+            font-size: 1.4em;
+            font-weight: 500;
+            color: var(--accent-gold-dark);
+            margin-bottom: 25px;
+        }
+        .waitlist-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #E2E8F0;
+            margin-bottom: 35px;
+        }
+        .features {
+            list-style: none;
+        }
+        .features li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: 1.05em;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .features li::before {
+            content: '⚡';
+            color: var(--accent-gold);
+            font-size: 1.2em;
+        }
+
+        /* Right Side: Form */
+        .waitlist-form-box {
+            background: var(--form-bg);
+            padding: 45px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .waitlist-form-box h3 {
+            color: var(--accent-gold);
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        .form-group input::placeholder {
+            color: #64748B;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+        .form-group select option {
+            background: var(--primary-bg);
+            color: white;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-dark));
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+        #status-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 700;
+            min-height: 24px;
+            font-size: 0.95em;
+        }
+
+        /* =========================================
+           4. LANDING PAGE FOOTER
+           ========================================= */
+        footer {
+            background: var(--primary-bg);
+            padding: 25px 5%;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+        }
+
+        /* =========================================
+           5. RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 992px) {
+            .waitlist-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding: 40px;
+            }
+            .waitlist-text {
+                text-align: center;
+            }
+            .features li {
+                justify-content: center;
+            }
+            nav ul {
+                gap: 15px;
+            }
+            nav a {
+                font-size: 0.8em;
+            }
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .waitlist-text h1 {
+                font-size: 2.5em;
+            }
+            .waitlist-form-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Landing Page Background Image Match -->
+    <div class="bg-slider"></div>
+
+    <!-- Exact Header format from Janaral company2.html -->
+    <header>
+        <a href="Janaral company2.html" class="logo-container">
+            <img src="my.jpeg" alt="JANARAL Logo" onerror="this.style.opacity='0'">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="Janaral company2.html">Home</a></li>
+                <li><a href="Janaral company2.html#divisions">Divisions</a></li>
+                <li><a href="Our teams.html">Our Teams</a></li>
+                <li><a href="#" class="active">JAI Waitlist</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="waitlist-container">
+            
+            <!-- Left Side -->
+            <div class="waitlist-text">
+                <h1>Early Access to <span>JAI</span></h1>
+                <h2>Your AI. Your Language. Your Command.</h2>
+                <p>Be among the first to experience the revolutionary AI assistant built exclusively for the African continent. Break language barriers and command your daily productivity.</p>
+                
+                <ul class="features">
+                    <li>Fluent in Hausa, Yoruba, Igbo, Swahili & English</li>
+                    <li>Advanced voice and text command processing</li>
+                    <li>Tailored for local business & daily productivity</li>
+                    <li>Seamless integration with the JANARAL ecosystem</li>
+                </ul>
+            </div>
+
+            <!-- Right Side -->
+            <div class="waitlist-form-box">
+                <h3>Secure Your Spot</h3>
+                <form id="waitlist-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="country" name="country" required>
+                            <option value="" disabled selected>Select your Country</option>
+                            <option value="nigeria">Nigeria 🇳🇬</option>
+                            <option value="ghana">Ghana 🇬🇭</option>
+                            <option value="kenya">Kenya 🇰🇪</option>
+                            <option value="south_africa">South Africa 🇿🇦</option>
+                            <option value="other">Other (Global) 🌍</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Join the Waitlist</button>
+                    <div id="status-message"></div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Exact Footer format from Janaral company2.html -->
+    <footer>
+        <p>© 2026 JANARAL Technologies | A SAM Holdings Company. All rights reserved.</p>
+    </footer>
+
+    <!-- Form Logic (Same functioning logic you provided) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('waitlist-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const countrySelect = document.getElementById('country');
+            const statusMessage = document.getElementById('status-message');
+    
+            // Restore draft inputs
+            if (localStorage.getItem('jai_draft_name')) nameInput.value = localStorage.getItem('jai_draft_name');
+            if (localStorage.getItem('jai_draft_email')) emailInput.value = localStorage.getItem('jai_draft_email');
+            if (localStorage.getItem('jai_draft_country')) countrySelect.value = localStorage.getItem('jai_draft_country');
+    
+            nameInput.addEventListener('input', (e) => localStorage.setItem('jai_draft_name', e.target.value));
+            emailInput.addEventListener('input', (e) => localStorage.setItem('jai_draft_email', e.target.value));
+            countrySelect.addEventListener('change', (e) => localStorage.setItem('jai_draft_country', e.target.value));
+    
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                statusMessage.textContent = "Processing submission...";
+                statusMessage.style.color = "#38bdf8";
+    
+                const formData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    country: countrySelect.value
+                };
+    
+                try {
+                    // Sends request to Vercel Serverless Function
+                    const response = await fetch('/api/waitlist', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+    
+                    const result = await response.json();
+    
+                    if (response.ok) {
+                        statusMessage.textContent = result.message;
+                        statusMessage.style.color = "#4ADE80"; // Green
+                        
+                        // Clear drafts & form
+                        localStorage.removeItem('jai_draft_name');
+                        localStorage.removeItem('jai_draft_email');
+                        localStorage.removeItem('jai_draft_country');
+                        form.reset();
+                    } else {
+                        statusMessage.textContent = result.error || "Submission failed.";
+                        statusMessage.style.color = "#FF6B6B"; // Red
+                    }
+                } catch (error) {
+                    console.error('Network Error:', error);
+                    statusMessage.textContent = "Connection error. Please try again.";
+                    statusMessage.style.color = "#FF6B6B";
+                }
+            });
+        });
+    </script>
+</body>

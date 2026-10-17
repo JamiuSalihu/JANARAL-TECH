@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Teams | JANARAL Technologies</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepSlate: '#1E293B',
+                        slateDarker: '#0F172A',
+                        skyGlass: 'rgba(14, 165, 233, 0.08)',
+                        skyBorder: 'rgba(56, 189, 248, 0.25)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F17;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism containers */
+        .sky-glass {
+            background: rgba(14, 165, 233, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .sky-glass:hover {
+            border-color: rgba(56, 189, 248, 0.55);
+            box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.35);
+        }
+
+        /* Dashed Logo Patch Header Style */
+        .logo-patch {
+            border:none;
+            position: relative;
+            background: rgba(15, 23, 42, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .logo-patch:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Hero Background Slideshow Effect */
+        .teams-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            animation: heroBgFade 20s infinite ease-in-out;
+        }
+
+        @keyframes heroBgFade {
+            0%, 25% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(11, 15, 23, 0.96)), 
+                                  url('images (12).jpeg'), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop');
+            }
+            30%, 55% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(11, 15, 23, 0.96)), 
+                                  url('my.jpeg'), url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1600&auto=format&fit=crop');
+            }
+            60%, 85% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(11, 15, 23, 0.96)), 
+                                  url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop');
+            }
+            100% {
+                background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(11, 15, 23, 0.96)), 
+                                  url('images (12).jpeg'), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop');
+            }
+        }
+
+        /* Glowing text accents */
+        .glow-sky {
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284C7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F17] text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- HEADER (#1E293B Deep Slate background) -->
+    <header class="sticky top-0 z-50 bg-[#1E293B]/95 backdrop-blur-md border-b border-sky-900/40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo with Dashed Logo Patch Container -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="relative w-12 h-12 rounded-xl overflow-hidden border border-sky-400/30 p-0.5 bg-slate-900">
+
+                <img src="image/my.jpeg" 
+                         alt="JANARAL Logo Patch" 
+                         class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=JNR';">
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-sky-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
+                        JANARAL
+                    </span>
+                    <span class="block text-[10px] font-semibold text-sky-400 uppercase tracking-widest">Technologies</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="Index.html#divisions" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Core Divisions</a>
+                <a href="Index.html#partnerships" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Strategic Partnerships</a>
+                <a href="#impact" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Global Infrastructure</a>
+                <a href="Our teams.html" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Our Teams</a>
+                <a href="Index.html#contact" class="text-slate-300 hover:text-sky-400 transition-colors duration-200">Initiate Contact</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="flex items-center space-x-4">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-lg shadow-md hover:from-sky-500 hover:to-blue-600 focus:ring-2 focus:ring-sky-400 transition-all duration-300 hover:shadow-sky-500/20">
+                    <i class="fa-solid fa-user-shield mr-2 text-xs"></i> Contact Council
+                </a>
+
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Mobile Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B] border-b border-sky-800/40 px-4 pt-2 pb-6 space-y-3 text-center">
+            <a href="#divisions" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Core Divisions</a>
+            <a href="Index.html#partnerships" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Strategic Partners</a>
+            <a href="Index.html" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Global Infrastructure</a>
+            <a href="Our teams.html" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Our Teams</a>
+            <a href="Index.html#contact" class="block py-2 text-slate-200 hover:text-sky-400 font-medium">Initiate Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden py-20">
+        <!-- Hero Slideshow Background -->
+        <div class="teams-hero-bg"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full sky-glass text-sky-300 text-xs font-semibold uppercase tracking-widest mb-6">
+                <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                <span>Leadership & Governance Operations</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                The Minds Behind <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent glow-sky">
+                    The Machine
+                </span>
+            </h1>
+
+            <!-- Updated Slogan -->
+            <p class="text-lg sm:text-2xl font-light text-slate-200 max-w-3xl mx-auto mb-8 leading-relaxed">
+                Engineering Technological Sovereignty & Sustainable Innovation
+            </p>
+
+            <div class="flex items-center justify-center space-x-4">
+                <a href="#executive" class="px-7 py-3.5 text-sm font-bold rounded-xl text-white bg-sky-500 hover:bg-sky-400 transition-all duration-300 shadow-lg shadow-sky-500/25">
+                    Meet Executive Leaders
+                </a>
+                <a href="#directors" class="px-7 py-3.5 text-sm font-semibold rounded-xl text-slate-200 sky-glass hover:bg-sky-500/20 transition-all duration-300">
+                    Explore Divisions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXECUTIVE LEADERSHIP SECTION -->
+    <section id="executive" class="py-24 relative bg-slate-950/90 border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">Corporate Apex</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold text-white">Executive Leadership</h3>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">
+                    Guiding corporate vision, capital deployment, and cross-disciplinary scientific execution.
+                </p>
+            </div>
+
+            <!-- Founder Card (Featured Prominently) -->
+            <div class="mb-12">
+                <div class="sky-glass p-8 sm:p-10 rounded-3xl border-2 border-sky-400/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+                    <span class="absolute top-4 right-4 bg-sky-500 text-slate-950 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
+                        Founder & CEO
+                    </span>
+
+                    <!-- Founder Image -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-sky-400/30 shadow-2xl group">
+                            <img src="image/my.jpeg" 
+                                 alt="S.A Muhammedjamiu" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/38bdf8?text=S.A+Muhammedjamiu';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Founder Bio -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="space-y-1">
+                            <span class="text-xs font-mono text-sky-400 uppercase tracking-widest">Global Executive Chief</span>
+                            <h4 class="text-3xl sm:text-4xl font-extrabold text-white">S.A Muhammedjamiu</h4>
+                            <p class="text-sm font-semibold text-sky-300">Founder & Chief Executive Officer</p>
+                        </div>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Pioneering the alignment of artificial intelligence, clean energy grids, and deep bio-technological research. S.A Muhammedjamiu leads JANARAL Technologies in engineering sovereign industrial infrastructure designed to endure and scale globally across generations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">System Architecture</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">Global Strategy</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">Quantum Infrastructure</span>
+                        </div>
+                        <div class="flex space-x-4 pt-4 text-slate-400">
+                            <a href="#" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                            <a href="#" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+                            <a href="#" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTO and COO Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- CTO -->
+                <div class="sky-glass p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-20 h-20 rounded-xl overflow-hidden border border-sky-400/30 flex-shrink-0">
+                                <img src="images (12).jpeg" 
+                                     alt="Chief Technology Officer" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/300x300/1e293b/38bdf8?text=CTO';">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Dr. Aris Thorne</h4>
+                                <p class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Chief Technology Officer</p>
+                                <span class="text-[11px] text-slate-400">Head of Quantum Computing R&D</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Oversees technical architecture, neural network scaling, and bio-computing interface protocols across all core JANARAL research labs.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-sky-900/40 text-xs">
+                        <span class="text-slate-400">20+ Yrs Compute Architecture</span>
+                        <div class="flex space-x-3 text-slate-400">
+                            <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-sky-400"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COO -->
+                <div class="sky-glass p-6 sm:p-8 rounded-2xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-20 h-20 rounded-xl overflow-hidden border border-sky-400/30 flex-shrink-0">
+                                <img src="images (7).jpeg" 
+                                     alt="Chief Operations Officer" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/300x300/1e293b/38bdf8?text=COO';">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Elena Rostova</h4>
+                                <p class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Chief Operations Officer</p>
+                                <span class="text-[11px] text-slate-400">Global Infrastructure Deployment</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Directs worldwide logistics, clean energy grid synchronization, multi-regional facility deployment, and strategic regulatory alignment.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-sky-900/40 text-xs">
+                        <span class="text-slate-400">18+ Yrs Industrial Operations</span>
+                        <div class="flex space-x-3 text-slate-400">
+                            <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-sky-400"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVISION DIRECTORS SECTION -->
+    <section id="directors" class="py-24 relative bg-[#0F172A] border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">Domain Specialists</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold text-white">Division Vice Presidents</h3>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">
+                    Subject matter experts driving technological execution across all 6 JANARAL operational divisions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- 1. VP Artificial Intelligence -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="images (b).jpeg" alt="VP AI" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=AI';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Dr. Vance Sterling</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, Artificial Intelligence</p>
+                            <p class="text-[10px] text-slate-400">JANARAL AI & Quantum</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Leads large language model orchestration, quantum computing integration, and sovereign algorithmic security systems.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>🤖 Neural Compute Lead</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 2. VP Clean Energy Systems -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="VP Energy" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=NRG';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Eng. Marcus Vance</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, Clean Energy Systems</p>
+                            <p class="text-[10px] text-slate-400">JANARAL Energy Systems</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Spearheads high-capacity battery grid scaling, micro-fusion power units, and zero-loss energy transfer technology.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>⚡ Fusion & Microgrids</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 3. VP Industrial Robotics -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="VP Robotics" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=ROB';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Kaito Tanaka</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, Industrial Robotics</p>
+                            <p class="text-[10px] text-slate-400">JANARAL Advanced Robotics</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Directs bipedal humanoid workforce engineering, heavy machinery automation, and autonomous drone swarm networks.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>🦾 Robotics & Swarms</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 4. VP BioTech & Life Sciences (NEW REQUIREMENT) -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all border-2 border-sky-400/40 relative">
+                    <span class="absolute -top-2.5 right-4 bg-sky-500 text-slate-950 text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+                        Featured Domain
+                    </span>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="VP BioTech" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=BIO';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Dr. Amara Chen</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, BioTech & Life Sciences</p>
+                            <p class="text-[10px] text-slate-400">🧫 JANARAL BioTech</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Manages computational genomics, bio-synthetic agriculture, cellular simulation, and sustainable bio-materials research.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>🧫 Genomics & Bio-Compute</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 5. VP Educational Technologies -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="VP Academy" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=ACA';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Prof. David O. Okafor</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, Educational Tech</p>
+                            <p class="text-[10px] text-slate-400">JANARAL Academy</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Drives STEM research fellowships, corporate innovation incubators, and global technical talent acceleration programs.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>🎓 Fellowships & R&D</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 6. VP Smart Infrastructure & Aerospace -->
+                <div class="sky-glass p-6 rounded-2xl space-y-4 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-lg overflow-hidden border border-sky-400/30 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" alt="VP Space" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/1e293b/38bdf8?text=SPC';">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Capt. Sarah Jenkins</h4>
+                            <p class="text-xs text-sky-400 font-semibold">VP, Smart Infrastructure</p>
+                            <p class="text-[10px] text-slate-400">JANARAL Space & Smart Cities</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Leads orbital satellite constellations, digital twin urban modeling, and autonomous smart city transit grids.
+                    </p>
+                    <div class="pt-2 border-t border-sky-900/30 flex justify-between items-center text-xs text-slate-400">
+                        <span>🚀 Satellite & Smart Cities</span>
+                        <a href="#" class="text-sky-400 hover:underline"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC PARTNERSHIPS SECTION (Vertical Layout with Auto-Changing Images & Synchronized Dynamic Captions) -->
+    <section id="partnerships" class="py-24 relative bg-slate-950 border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 bg-sky-950 px-3 py-1 rounded-full border border-sky-800">
+                    Synergistic Ecosystem
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Strategic Partnerships</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">
+                    Vertical team integration with international consortiums, fabrication giants, and capital networks.
+                </p>
+            </div>
+
+            <!-- Vertical Stack Container -->
+            <div class="space-y-10 max-w-5xl mx-auto">
+
+                <!-- Dynamic Cycling Partnerships Showcase Card -->
+                <div class="sky-glass p-6 sm:p-10 rounded-3xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center border border-sky-400/30">
+                    <!-- Left Column: Details Write-up -->
+                    <div class="md:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 border border-sky-400/20">
+                                <i class="fa-solid fa-handshake-angle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Global Strategic Network</h3>
+                                <p class="text-xs text-sky-400 font-mono">SYNCHRONIZED COALITION INITIATIVE</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            JANARAL Technologies partners with leading global research entities, heavy manufacturing foundries, and institutional funds. Our teams co-engineer hardware-software stacks to deploy secure, sustainable infrastructure globally.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">Joint R&D Labs</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">Heavy Fabrication</span>
+                            <span class="px-3 py-1 text-xs rounded-md bg-slate-900 text-sky-300 border border-sky-800">Sovereign Data Conduits</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Auto-Cycling Side-by-Side Image Box with Dynamic Captions -->
+                    <div class="md:col-span-5 relative group overflow-hidden rounded-2xl border border-sky-400/30 bg-slate-900 h-64 sm:h-72 shadow-2xl">
+                        <div id="partner-slides-container" class="w-full h-full relative">
+                            <!-- Image 1: my.jpeg -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-100" 
+                                 data-caption="Command Operations Center: Team alignment on sovereign AI compute nodes.">
+                                <img src="my.jpeg" 
+                                     class="w-full h-full object-cover" 
+                                     alt="JANARAL Executive Command"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/38bdf8?text=JANARAL+Command';">
+                            </div>
+
+                            <!-- Image 2: images (b).jpeg -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" 
+                                 data-caption="Bio-Computational Assembly: High-throughput genomic sequencing facilities.">
+                                <img src="images (b).jpeg" 
+                                     class="w-full h-full object-cover" 
+                                     alt="Bio-Computational Assembly"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/38bdf8?text=Bio-Computational+Lab';">
+                            </div>
+
+                            <!-- Image 3: images (7).jpeg -->
+                            <div class="partner-slide absolute inset-0 transition-opacity duration-700 opacity-0" 
+                                 data-caption="Industrial Clean Energy Grid: Multi-gigawatt renewable deployment.">
+                                <img src="images (7).jpeg" 
+                                     class="w-full h-full object-cover" 
+                                     alt="Industrial Clean Energy Grid"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/1e293b/38bdf8?text=Clean+Energy+Grid';">
+                            </div>
+                        </div>
+
+                        <!-- Synchronized Caption Overlay -->
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">
+                            <span class="text-[10px] font-extrabold uppercase text-sky-400 tracking-wider flex items-center mb-1">
+                                <i class="fa-solid fa-arrows-rotate animate-spin mr-1.5 text-[9px]"></i> Dynamic Alliance Telemetry
+                            </span>
+                            <p id="partner-dynamic-caption" class="text-xs text-slate-200 font-medium leading-snug transition-opacity duration-300">
+                                Command Operations Center: Team alignment on sovereign AI compute nodes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (#1E293B Deep Slate Background) -->
+    <footer class="bg-[#1E293B] border-t border-sky-900/40 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                
+                <!-- Corporate Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="relative w-12 h-12 rounded-xl overflow-hidden border border-sky-400/30 p-0.5 bg-slate-900">
+                            <img src="my.jpeg" 
+                                 alt="JANARAL Logo" 
+                                 class="w-full h-full object-cover rounded"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e293b/38bdf8?text=JNR';">
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-wider">JANARAL Technologies</span>
+                    </div>
+                    <p class="text-slate-300 text-sm max-w-md leading-relaxed">
+                        Engineering Technological Sovereignty & Sustainable Innovation across AI, BioTech, Clean Energy, and Advanced Robotics.
+                    </p>
+                    
+                    <!-- Contact Details -->
+                    <div class="space-y-1.5 pt-2 text-xs text-slate-300 font-mono">
+                        <p class="flex items-center"><i class="fa-solid fa-phone text-sky-400 mr-2.5"></i> +234 800 123 4567</p>
+                        <p class="flex items-center"><i class="fa-solid fa-envelope text-sky-400 mr-2.5"></i> contact@janaral.com</p>
+                        <p class="flex items-center"><i class="fa-solid fa-location-dot text-sky-400 mr-2.5"></i> Global Operations Command HQ</p>
+                    </div>
+                </div>
+
+                <!-- Core Navigation -->
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">Leadership & Divisions</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#executive" class="hover:text-sky-300 transition-colors">Executive Council</a></li>
+                        <li><a href="#directors" class="hover:text-sky-300 transition-colors">🧫 JANARAL BioTech</a></li>
+                        <li><a href="#directors" class="hover:text-sky-300 transition-colors">🤖 AI & Quantum Systems</a></li>
+                        <li><a href="#directors" class="hover:text-sky-300 transition-colors">⚡ Clean Energy Systems</a></li>
+                        <li><a href="#directors" class="hover:text-sky-300 transition-colors">🦾 Advanced Robotics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Governance & Social Channels -->
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">Official Channels</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-x-twitter text-sky-400 w-4"></i>
+                            <span class="text-slate-300">@JanaralTech</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-instagram text-sky-400 w-4"></i>
+                            <span class="text-slate-300">@Janaral.Tech</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-linkedin text-sky-400 w-4"></i>
+                            <span class="text-slate-300">JANARAL Tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
+                <p>&copy; 2026 JANARAL Technologies | A SAM holding company. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="index.html" class="hover:text-sky-400 transition-colors">Privacy Protocol</a>
+                    <a href="index.html" class="hover:text-sky-400 transition-colors">Terms of Governance</a>
+                    <a href="index.html" class="hover:text-sky-400 transition-colors">Security Clearance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // JavaScript Dynamic Partnership Image & Synchronized Caption Cycler
+            const container = document.getElementById('partner-slides-container');
+            const captionEl = document.getElementById('partner-dynamic-caption');
+
+            if (container && captionEl) {
+                const slides = container.querySelectorAll('.partner-slide');
+                let currentSlideIndex = 0;
+
+                if (slides.length > 0) {
+                    setInterval(() => {
+                        // Fade out current slide
+                        slides[currentSlideIndex].classList.remove('opacity-100');
+                        slides[currentSlideIndex].classList.add('opacity-0');
+
+                        // Move to next slide
+                        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+                        // Fade in next slide
+                        slides[currentSlideIndex].classList.remove('opacity-0');
+                        slides[currentSlideIndex].classList.add('opacity-100');
+
+                        // Update caption text smoothly
+                        const newCaption = slides[currentSlideIndex].getAttribute('data-caption');
+                        captionEl.style.opacity = '0';
+                        setTimeout(() => {
+                            captionEl.textContent = newCaption;
+                            captionEl.style.opacity = '1';
+                        }, 300);
+
+                    }, 4000); // Cycles every 4 seconds
+                }
+            }
+        });
+    </script>
+</body>
+</html>
