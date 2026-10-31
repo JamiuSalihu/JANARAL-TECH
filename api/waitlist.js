@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 
 // MongoDB Connection URI from Vercel Environment Variables
 const MONGODB_URI = process.env.MONGODB_URI;
-const DB_NAME = 'janaral_tech';
+const DB_NAME = 'Cluster0';
 
 let cachedClient = null;
 
